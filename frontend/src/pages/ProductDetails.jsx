@@ -31,7 +31,7 @@ function ProductDetails() {
   //fetch product
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/${id}`)
+      .get(`https://kokart-ecommerce-website.onrender.com/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -40,7 +40,7 @@ function ProductDetails() {
   const fetchReviews = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/reviews/${id}`
+        `https://kokart-ecommerce-website.onrender.com/api/reviews/${id}`
       );
       setReviews(data);
     } catch (err) {
@@ -62,7 +62,7 @@ function ProductDetails() {
 
         // check orders
         const { data: orders } = await axios.get(
-          "http://localhost:5000/api/orders",
+          "https://kokart-ecommerce-website.onrender.com/api/orders",
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -105,7 +105,7 @@ function ProductDetails() {
       const token = await currentUser.getIdToken();
 
       await axios.post(
-        `http://localhost:5000/api/reviews/${id}`,
+        `https://kokart-ecommerce-website.onrender.com/api/reviews/${id}`,
         { rating, comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -116,7 +116,7 @@ function ProductDetails() {
 
       // refresh product to get new averageRating
       const { data } = await axios.get(
-        `http://localhost:5000/api/products/${id}`
+        `https://kokart-ecommerce-website.onrender.com/api/products/${id}`
       );
       setProduct(data);
 
@@ -132,14 +132,14 @@ function ProductDetails() {
   const deleteReview = async (reviewId) => {
     try {
       const token = await currentUser.getIdToken();
-      await axios.delete(`http://localhost:5000/api/reviews/${reviewId}`, {
+      await axios.delete(`https://kokart-ecommerce-website.onrender.com/api/reviews/${reviewId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchReviews();
 
       // refresh product rating
       const { data } = await axios.get(
-        `http://localhost:5000/api/products/${id}`
+        `https://kokart-ecommerce-website.onrender.com/api/products/${id}`
       );
       setProduct(data);
 
@@ -156,7 +156,7 @@ function ProductDetails() {
     }
     const token = await user.getIdToken();
     await axios.post(
-      "http://localhost:5000/api/cart/add",
+      "https://kokart-ecommerce-website.onrender.com/api/cart/add",
       { productId: product._id },
       { headers: { Authorization: `Bearer ${token}` } }
     );

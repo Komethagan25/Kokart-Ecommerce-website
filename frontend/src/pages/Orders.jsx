@@ -20,7 +20,7 @@ function Orders() {
                 if (!user) return;
 
                 const token = await user.getIdToken();
-                const res = await axios.get("http://localhost:5000/api/orders", {
+                const res = await axios.get("https://kokart-ecommerce-website.onrender.com/api/orders", {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setOrders(res.data);
@@ -39,7 +39,7 @@ function Orders() {
 
             const token = await user.getIdToken();
             await axios.put(
-                `http://localhost:5000/api/orders/cancel/${id}`,
+                `https://kokart-ecommerce-website.onrender.com/api/orders/cancel/${id}`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );

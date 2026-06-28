@@ -62,7 +62,7 @@ function Register() {
       localStorage.setItem("token", token);
 
       await axios.post(
-        "http://localhost:5000/api/users/save",
+        "https://kokart-ecommerce-website.onrender.com/api/users/save",
         { name: user.name, email: user.email },
         { headers: { Authorization: `Bearer ${token}` } }
       );

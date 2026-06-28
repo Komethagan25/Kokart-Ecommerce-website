@@ -36,7 +36,7 @@ function Login() {
 
       const token = await userCred.user.getIdToken();
 
-      const res = await axios.get("http://localhost:5000/api/users/me", {
+      const res = await axios.get("https://kokart-ecommerce-website.onrender.com/api/users/me", {
         headers: {
           Authorization: `Bearer ${token}`
         }

@@ -19,7 +19,7 @@ function WishlistPage() {
 
       const token = await user.getIdToken();
       const { data } = await axios.get(
-        "http://localhost:5000/api/wishlist",
+        "https://kokart-ecommerce-website.onrender.com/api/wishlist",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -42,7 +42,7 @@ function WishlistPage() {
       const token = await user.getIdToken();
 
       await axios.delete(
-        `http://localhost:5000/api/wishlist/${productId}`,
+        `https://kokart-ecommerce-website.onrender.com/api/wishlist/${productId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

@@ -20,7 +20,7 @@ function Profile() {
   const fetchUser = async () => {
     try {
       const token = await getToken();
-      const { data } = await axios.get("http://localhost:5000/api/users/me", {
+      const { data } = await axios.get("https://kokart-ecommerce-website.onrender.com/api/users/me", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUser(data);
@@ -33,7 +33,7 @@ function Profile() {
   const fetchAddresses = async () => {
     try {
       const token = await getToken();
-      const { data } = await axios.get("http://localhost:5000/api/addresses", {
+      const { data } = await axios.get("https://kokart-ecommerce-website.onrender.com/api/addresses", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAddresses(data);
@@ -61,7 +61,7 @@ function Profile() {
     try {
       const token = await getToken();
       const { data } = await axios.post(
-        "http://localhost:5000/api/addresses",
+        "https://kokart-ecommerce-website.onrender.com/api/addresses",
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -77,7 +77,7 @@ function Profile() {
   const deleteAddress = async (id) => {
     try {
       const token = await getToken();
-      await axios.delete(`http://localhost:5000/api/addresses/${id}`, {
+      await axios.delete(`https://kokart-ecommerce-website.onrender.com/api/addresses/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAddresses(addresses.filter(a => a._id !== id));

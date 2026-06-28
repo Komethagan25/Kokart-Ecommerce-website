@@ -23,7 +23,7 @@ function AdminProducts() {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/products");
+      const { data } = await axios.get("https://kokart-ecommerce-website.onrender.com/api/products");
       setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -55,7 +55,7 @@ function AdminProducts() {
       });
 
       await axios.post(
-        "http://localhost:5000/api/products",
+        "https://kokart-ecommerce-website.onrender.com/api/products",
         formData,
         {
           headers: {
@@ -88,7 +88,7 @@ function AdminProducts() {
     try {
       const token = await user.getIdToken();
       await axios.delete(
-        `http://localhost:5000/api/products/${id}`,
+        `https://kokart-ecommerce-website.onrender.com/api/products/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert("Product Deleted");

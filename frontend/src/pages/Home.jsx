@@ -26,7 +26,7 @@ function Home() {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/products")
+        axios.get("https://kokart-ecommerce-website.onrender.com/api/products")
             .then(res => setProducts(res.data))
             .catch(err => console.log(err));
     }, []);
@@ -48,7 +48,7 @@ function Home() {
         try {
             const token = await user.getIdToken();
             const { data } = await axios.get(
-                "http://localhost:5000/api/wishlist",
+                "https://kokart-ecommerce-website.onrender.com/api/wishlist",
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
@@ -73,7 +73,7 @@ function Home() {
             if (wishlistIds.includes(productId)) {
 
                 await axios.delete(
-                    `http://localhost:5000/api/wishlist/${productId}`,
+                    `https://kokart-ecommerce-website.onrender.com/api/wishlist/${productId}`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
 
@@ -82,7 +82,7 @@ function Home() {
             } else {
 
                 await axios.post(
-                    `http://localhost:5000/api/wishlist/${productId}`,
+                    `https://kokart-ecommerce-website.onrender.com/api/wishlist/${productId}`,
                     {},
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
@@ -104,7 +104,7 @@ function Home() {
             }
             const token = await user.getIdToken();
             await axios.post(
-                "http://localhost:5000/api/cart/add",
+                "https://kokart-ecommerce-website.onrender.com/api/cart/add",
                 { productId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

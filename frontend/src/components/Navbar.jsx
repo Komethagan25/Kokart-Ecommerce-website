@@ -20,7 +20,7 @@ function Navbar() {
           // forceRefresh
           const token = await currentUser.getIdToken(true);
 
-          const res = await axios.get("http://localhost:5000/api/users/me", {
+          const res = await axios.get("https://kokart-ecommerce-website.onrender.com/api/users/me", {
             headers: { Authorization: `Bearer ${token}` }
           });
 
@@ -45,7 +45,7 @@ function Navbar() {
     if (value.length > 1) {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/products/suggest/${value}`
+          `https://kokart-ecommerce-website.onrender.com/api/products/suggest/${value}`
         );
         setSuggestions(res.data);
       } catch (err) {

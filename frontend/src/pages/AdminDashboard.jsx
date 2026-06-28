@@ -24,7 +24,7 @@ function AdminDashboard() {
       const token = await user.getIdToken();
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/admin/stats",
+        "https://kokart-ecommerce-website.onrender.com/api/admin/stats",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

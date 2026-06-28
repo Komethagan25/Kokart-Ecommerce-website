@@ -8,7 +8,7 @@ function Search() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/suggest/${keyword}`)
+      .get(`https://kokart-ecommerce-website.onrender.com/api/products/suggest/${keyword}`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, [keyword]);

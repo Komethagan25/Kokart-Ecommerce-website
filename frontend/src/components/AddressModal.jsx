@@ -15,7 +15,7 @@ function AddressModal({ onClose, onAddressSelected }) {
     try {
       const user = auth.currentUser;
       const token = await user.getIdToken();
-      const { data } = await axios.get("http://localhost:5000/api/addresses", {
+      const { data } = await axios.get("https://kokart-ecommerce-website.onrender.com/api/addresses", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAddresses(data);
@@ -48,7 +48,7 @@ function AddressModal({ onClose, onAddressSelected }) {
       const user = auth.currentUser;
       const token = await user.getIdToken();
       const { data } = await axios.post(
-        "http://localhost:5000/api/addresses",
+        "https://kokart-ecommerce-website.onrender.com/api/addresses",
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -67,7 +67,7 @@ function AddressModal({ onClose, onAddressSelected }) {
     try {
       const user = auth.currentUser;
       const token = await user.getIdToken();
-      await axios.delete(`http://localhost:5000/api/addresses/${id}`, {
+      await axios.delete(`https://kokart-ecommerce-website.onrender.com/api/addresses/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

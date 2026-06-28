@@ -23,7 +23,7 @@ function AdminOrders() {
       const token = await user.getIdToken();
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/orders/all",
+        "https://kokart-ecommerce-website.onrender.com/api/orders/all",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -45,7 +45,7 @@ function AdminOrders() {
       const token = await user.getIdToken();
 
       await axios.put(
-        `http://localhost:5000/api/orders/status/${orderId}`,
+        `https://kokart-ecommerce-website.onrender.com/api/orders/status/${orderId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
